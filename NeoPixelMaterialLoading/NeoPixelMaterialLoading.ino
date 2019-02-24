@@ -12,7 +12,7 @@ ramp j;
 #define POT_PIN     A1
 #define NUMPIXELS      24
 #define LOOP_DURATION 1666
-#define CENTER_DURATION 2500
+#define CENTER_DURATION 2000
 
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
@@ -26,8 +26,8 @@ void setup() {
 
   pixels.begin(); // This initializes the NeoPixel library.
   c.go(NUMPIXELS, CENTER_DURATION, LINEAR, LOOPFORWARD);
-  f.go(NUMPIXELS, LOOP_DURATION, QUADRATIC_IN, LOOPFORWARD);
-  j.go(NUMPIXELS, LOOP_DURATION, QUADRATIC_OUT, LOOPFORWARD);
+  f.go(NUMPIXELS, LOOP_DURATION, CUBIC_IN, LOOPFORWARD);
+  j.go(NUMPIXELS, LOOP_DURATION, CUBIC_OUT, LOOPFORWARD);
 
   Serial.begin(9600);
 }
